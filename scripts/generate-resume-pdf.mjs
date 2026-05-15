@@ -28,7 +28,7 @@ const pdfVariants = [
     dateLocale: "en-US",
     presentLabel: "Present",
     sections: {
-      leadership: "Leadership Activities",
+      leadership: "Professional Summary",
       experience: "Experience",
       skills: "Skills",
       education: "Education",
@@ -41,7 +41,7 @@ const pdfVariants = [
     dateLocale: "pt-BR",
     presentLabel: "Atual",
     sections: {
-      leadership: "Atividades de Liderança",
+      leadership: "Resumo Profissional",
       experience: "Experiência",
       skills: "Habilidades",
       education: "Educação",
@@ -192,6 +192,7 @@ function getProfileFromCvDataJson(strict) {
       location: "Your City, Your Country",
       linkedin: "https://linkedin.com/in/yourprofile",
       github: "https://github.com/yourprofile",
+      summary: { en: [], pt: [] },
     },
     cvSections: { ...defaultCvSections },
   };
@@ -239,6 +240,7 @@ function getProfileFromCvDataJson(strict) {
   }
 
   const rawSections = parsed?.CV_SECTIONS ?? parsed?.["cv-sections"] ?? parsed?.cvSections;
+  const rawSummary = parsed?.SUMMARY && typeof parsed.SUMMARY === "object" ? parsed.SUMMARY : {};
 
   return {
     profile: {
@@ -247,6 +249,10 @@ function getProfileFromCvDataJson(strict) {
       location: profile.LOCATION,
       linkedin: linkedinValue ?? githubValue,
       github: githubValue,
+      summary: {
+        en: Array.isArray(rawSummary.en) ? rawSummary.en : [],
+        pt: Array.isArray(rawSummary.pt) ? rawSummary.pt : [],
+      },
     },
     cvSections: normalizeCvSections(rawSections),
   };
@@ -352,6 +358,11 @@ function buildLeadershipSection(entries, variant) {
     .join("\n\n");
 }
 
+function buildSummarySection(profile, variant) {
+  const summary = Array.isArray(profile.summary?.[variant.id]) ? profile.summary[variant.id] : [];
+  return summary.map((paragraph) => escapeLatex(paragraph)).join("\n\n");
+}
+
 function buildSkillsSection(entries) {
   if (!entries.length) return "";
 
@@ -385,12 +396,6 @@ function buildDocument(strict, variant) {
   const educationEntries = readCollection(educationDir)
     .map((item) => item.data)
     .sort(compareByStartDateDesc);
-  const leadershipEntries = normalizeLeadershipEntries(
-    readCollection(leadershipDir)
-      .map((item) => item.data)
-      .sort(compareByStartDateDesc),
-    strict,
-  );
   const skillsEntries = normalizeSkillsEntries(
     readCollection(skillsDir).map((item) => item.data),
     strict,
@@ -398,7 +403,7 @@ function buildDocument(strict, variant) {
 
   const experienceTex = buildExperienceSection(workEntries, variant);
   const educationTex = buildEducationSection(educationEntries, variant);
-  const leadershipTex = buildLeadershipSection(leadershipEntries, variant);
+  const summaryTex = buildSummarySection(profile, variant);
   const skillsTex = buildSkillsSection(skillsEntries);
 
   const safeName = escapeLatex(profile.name);
@@ -419,7 +424,7 @@ function buildDocument(strict, variant) {
     .replace(/pdfauthor=\{[^}]*\}/, `pdfauthor={${safeName}}`);
 
   const renderedSections = [
-    cvSections.leadership ? `\\section{${variant.sections.leadership}}\n${leadershipTex}` : "",
+    cvSections.leadership && summaryTex ? `\\section{${variant.sections.leadership}}\n${summaryTex}` : "",
     cvSections.experience ? `\\section{${variant.sections.experience}}\n${experienceTex}` : "",
     cvSections.skills ? `\\section{${variant.sections.skills}}\n${skillsTex}` : "",
     cvSections.education ? `\\section{${variant.sections.education}}\n${educationTex}` : "",
