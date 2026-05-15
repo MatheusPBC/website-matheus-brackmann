@@ -88,3 +88,14 @@ Config padrao:
 ## Licenca
 
 Uso pessoal. O codigo pode servir como referencia, mas o conteudo profissional, textos e curriculos pertencem a Matheus Brackmann.
+
+## Referencias e citacoes
+
+Este site foi evoluido a partir de um portfolio pessoal anterior e reestruturado para Next.js, mantendo apenas referencias tecnicas úteis e substituindo o conteudo pelo perfil profissional de Matheus Brackmann.
+
+Repositorios e materiais usados como base ou referencia:
+
+- [Next.js](https://github.com/vercel/next.js) — framework principal usado na versao atual do projeto.
+- [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) — sistema de utilitarios usado para a camada visual.
+- [Bear Blog default CSS](https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css) — referencia historica para parte dos estilos globais iniciais.
+- [Vercel MCP](https://vercel.com/docs/agent-resources/vercel-mcp) — referencia usada para configurar o MCP oficial da Vercel no fluxo de desenvolvimento.
