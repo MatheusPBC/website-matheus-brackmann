@@ -18,6 +18,12 @@ export const socialLinks: SocialLinkItem[] = [
     external: true,
     icon: "github",
   },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/matheus-pimentel-brackmann-caramuru-1250611b6/",
+    external: true,
+    icon: "linkedin",
+  },
 ];
 
 const socialLinksWithoutLinkedin: SocialLinkItem[] = socialLinks.filter(

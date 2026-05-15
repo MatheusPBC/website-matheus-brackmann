@@ -4,19 +4,20 @@
     "EMAIL": "matheuspbrackmannc@gmail.com",
     "LOCATION": "Curitiba, PR, Brasil",
     "SOCIALS": {
+      "LINKEDIN": "https://www.linkedin.com/in/matheus-pimentel-brackmann-caramuru-1250611b6/",
       "GITHUB": "https://github.com/MatheusPBC"
     }
   },
   "SUMMARY": {
     "en": [
-      "Backend and Cloud developer with experience designing distributed systems, APIs, automation workflows, IoT telemetry, and cloud-native infrastructure. Strong background with AWS Lambda, AppSync, DynamoDB, Node.js, TypeScript, Python, MongoDB, Docker, and infrastructure as code, with focus on scalability, cost awareness, observability, and maintainability in production systems.",
-      "Experienced in high-volume data environments, including pipelines for reading, validating, transforming, and delivering field equipment measurements, as well as event-driven and serverless processing architectures. Also works with applied AI in engineering workflows and products, including RAG, MCP, LLM automation, and agents for productivity, data analysis, and new feature development.",
-      "Technical generalist with a solid foundation in backend, databases, and cloud, able to understand legacy systems, refactor complex flows, reduce bottlenecks, and turn business problems into practical solutions. Collaborative profile with experience supporting architectural decisions and technical mentoring."
+      "Backend and Cloud Developer with experience building serverless APIs, event-driven integrations, IoT telemetry pipelines, and cloud-native systems using AWS Lambda, AppSync, DynamoDB, Node.js, TypeScript, Python, MongoDB, and Docker.",
+      "Strong background in production systems involving high-volume data, real-time communication, cost-aware architecture, observability, and maintainability. Experienced in transforming business requirements into scalable backend solutions, refactoring legacy flows, and supporting architectural decisions.",
+      "Also experienced with applied AI workflows, including RAG, MCP, LLM automation, and agents for productivity, data analysis, and engineering support."
     ],
     "pt": [
-      "Desenvolvedor Backend e Cloud com experiencia em arquitetura de sistemas distribuidos, APIs, automacoes, telemetria IoT e infraestrutura em nuvem. Atuacao forte com AWS Lambda, AppSync, DynamoDB, Node.js, TypeScript, Python, MongoDB, Docker e infraestrutura como codigo, com foco em escalabilidade, custo, observabilidade e manutencao de sistemas em producao.",
-      "Experiencia em ambientes com alto volume de dados, incluindo pipelines de leitura, validacao, transformacao e envio de medicoes de equipamentos de campo, alem de arquiteturas orientadas a eventos e processamento serverless. Tambem atua com IA aplicada a engenharia e produtos, incluindo RAG, MCP, automacoes com LLMs e agentes para produtividade, analise de dados e novas funcionalidades.",
-      "Perfil tecnico generalista com base solida em backend, bancos de dados e cloud, com facilidade para entender sistemas legados, refatorar fluxos complexos, reduzir gargalos e transformar problemas de negocio em solucoes praticas. Experiencia colaborando com times, apoiando decisoes arquiteturais e mentoria tecnica."
+      "Desenvolvedor Backend e Cloud com experiencia na construcao de APIs serverless, integracoes orientadas a eventos, pipelines de telemetria IoT e sistemas cloud-native usando AWS Lambda, AppSync, DynamoDB, Node.js, TypeScript, Python, MongoDB e Docker.",
+      "Base forte em sistemas de producao envolvendo alto volume de dados, comunicacao em tempo real, arquitetura orientada a custo, observabilidade e manutencao. Experiencia transformando requisitos de negocio em solucoes backend escalaveis, refatorando fluxos legados e apoiando decisoes arquiteturais.",
+      "Tambem atua com fluxos de IA aplicada, incluindo RAG, MCP, automacoes com LLMs e agentes para produtividade, analise de dados e suporte a engenharia."
     ]
   },
   "CV_SECTIONS": {

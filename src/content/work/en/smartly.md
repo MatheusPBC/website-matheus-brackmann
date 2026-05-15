@@ -1,6 +1,6 @@
 ---
 company: "SmartLy"
-role: "Backend Developer and Architect"
+role: "Backend Developer — Cloud & Serverless Architecture"
 location: "Brazil"
 dateStart: "2024-05-01"
 dateEnd: "Present"
