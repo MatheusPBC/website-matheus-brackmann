@@ -91,10 +91,12 @@ Uso pessoal. O codigo pode servir como referencia, mas o conteudo profissional, 
 
 ## Referencias e citacoes
 
-Este site foi evoluido a partir de um portfolio pessoal anterior e reestruturado para Next.js, mantendo apenas referencias tecnicas úteis e substituindo o conteudo pelo perfil profissional de Matheus Brackmann.
+Este site foi evoluido a partir do portfolio [`lunaperegrina/website-lunaperegrina`](https://github.com/lunaperegrina/website-lunaperegrina), preservando parte do historico Git original e reestruturando a base para Next.js, com novo conteudo profissional de Matheus Brackmann.
 
 Repositorios e materiais usados como base ou referencia:
 
+- [Luna Peregrina — website-lunaperegrina](https://github.com/lunaperegrina/website-lunaperegrina) — repositorio original usado como base historica do projeto.
+- [Joao Alves Costa](https://github.com/joaoalvess) — contribuicoes preservadas no historico Git original, incluindo a refatoracao de rotas localizadas.
 - [Next.js](https://github.com/vercel/next.js) — framework principal usado na versao atual do projeto.
 - [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) — sistema de utilitarios usado para a camada visual.
 - [Bear Blog default CSS](https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css) — referencia historica para parte dos estilos globais iniciais.
