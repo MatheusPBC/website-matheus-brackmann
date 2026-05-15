@@ -6,7 +6,7 @@ dateStart: "2024-05-01"
 dateEnd: "Present"
 type: "Current role"
 highlights:
-  - "Architected and developed a cloud-native IoT device management platform using AWS AppSync, AWS Lambda, DynamoDB, GraphQL, and serverless integrations."
+  - "Architected and developed a cloud-native IoT and home automation platform using AWS AppSync, AWS Lambda, DynamoDB, GraphQL, and serverless integrations, applied in enterprise contexts with brands such as O Boticário and KaBuM!."
   - "Modeled high-volume telemetry data and flows, balancing millions of messages, latency, per-operation cost, fan-out, and operational consistency."
   - "Designed real-time communication alternatives using GraphQL subscriptions, MQTT, WebSockets, DynamoDB Streams, Redis, interest management, and selective fan-out."
   - "Refactored backend structures, queries, and data contracts to reduce coupling, improve maintainability, and unlock production system evolution."
