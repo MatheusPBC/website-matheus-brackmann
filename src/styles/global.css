@@ -52,14 +52,14 @@
   body {
     @apply font-sans antialiased;
     @apply flex flex-col;
-    @apply bg-stone-100 dark:bg-black;
-    @apply text-black/50 dark:text-white/75;
+    @apply bg-stone-100 dark:bg-zinc-950;
+    @apply text-black/60 dark:text-white/75;
   }
 
   header {
     @apply fixed top-0 left-0 right-0 z-50 py-4 md:py-5;
-    @apply bg-stone-100/75 dark:bg-black/25;
-    @apply backdrop-blur-xs saturate-200;
+    @apply bg-stone-100/80 dark:bg-zinc-950/70;
+    @apply backdrop-blur-md saturate-150;
   }
 
   main {

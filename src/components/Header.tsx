@@ -34,8 +34,8 @@ export function Header({ locale }: HeaderProps) {
 
   return (
     <header>
-      <Container>
-        <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+      <Container className="max-w-6xl">
+        <div className="flex flex-col gap-3 rounded-2xl border border-black/10 bg-white/70 px-4 py-3 shadow-sm shadow-black/5 backdrop-blur md:flex-row md:items-center md:justify-between dark:border-white/10 dark:bg-white/[0.04] dark:shadow-black/20">
           <Link href={toLocalizedPath(locale)} className="font-semibold text-black no-underline dark:text-white">
             {SITE.NAME}
           </Link>
