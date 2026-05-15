@@ -2,7 +2,6 @@
 title: "PokemonGame"
 description: "Prototipo em Godot/GDScript para estudar sistemas de jogo, progresso e interacao."
 date: "Feb 14 2026"
-repoURL: "https://github.com/MatheusPBC/PokemonGame"
 ---
 
 PokemonGame e um prototipo em Godot feito para explorar sistemas de jogo: interacao, progressao, entidades, mapas e mecanicas inspiradas em RPG.

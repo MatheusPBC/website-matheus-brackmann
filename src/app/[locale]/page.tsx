@@ -36,7 +36,13 @@ export default async function HomePage({ params }: HomePageProps) {
     { value: "GraphQL", label: t("home.signal.graphql") },
     { value: "AI", label: t("home.signal.ai") },
   ];
-  const systemFlow = ["Devices", "AppSync", "Lambda", "DynamoDB", "Ops/AI"];
+  const systemFlow = [
+    { label: "IoT devices", detail: "telemetry" },
+    { label: "AppSync API", detail: "GraphQL" },
+    { label: "Lambda workers", detail: "events" },
+    { label: "DynamoDB", detail: "state" },
+    { label: "Ops & AI tooling", detail: "feedback" },
+  ];
   const focusAreas = [
     t("home.focus.serverless"),
     t("home.focus.telemetry"),
@@ -81,17 +87,21 @@ export default async function HomePage({ params }: HomePageProps) {
 
           <div className="rounded-[1.5rem] border border-zinc-950/10 bg-zinc-950 p-4 text-white shadow-2xl shadow-zinc-950/20 dark:border-white/10 dark:bg-black/70">
             <div className="mb-4 flex items-center justify-between border-b border-white/10 pb-3 text-xs text-white/50">
-              <span>production-systems.map</span>
-              <span>live</span>
+              <span>{t("home.architecture.title")}</span>
+              <span>{t("home.architecture.static")}</span>
             </div>
-            <div className="space-y-3">
+            <p className="mb-5 text-sm leading-6 text-white/65">{t("home.architecture.description")}</p>
+            <div className="space-y-2">
               {systemFlow.map((item, index) => (
-                <div key={item} className="flex items-center gap-3">
-                  <div className="flex size-9 shrink-0 items-center justify-center rounded-xl border border-emerald-400/20 bg-emerald-400/10 font-mono text-xs text-emerald-200">
-                    {String(index + 1).padStart(2, "0")}
+                <div key={item.label} className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-3">
+                  <div>
+                    <div className="text-sm font-semibold text-white">{item.label}</div>
+                    <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-emerald-200/70">{item.detail}</div>
                   </div>
-                  <div className="h-px flex-1 bg-gradient-to-r from-emerald-400/60 to-cyan-400/10" />
-                  <div className="w-28 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 text-sm font-medium">{item}</div>
+                  <div className="flex items-center gap-2 font-mono text-xs text-white/40">
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    {index < systemFlow.length - 1 ? <span className="text-emerald-200">-&gt;</span> : null}
+                  </div>
                 </div>
               ))}
             </div>
