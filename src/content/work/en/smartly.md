@@ -1,0 +1,26 @@
+---
+company: "SmartLy"
+role: "Backend Developer and Architect"
+location: "Brazil"
+dateStart: "2024-05-01"
+dateEnd: "Present"
+type: "Current role"
+highlights:
+  - "Architected and developed a cloud-native IoT device management platform using AWS AppSync, AWS Lambda, DynamoDB, GraphQL, and serverless integrations."
+  - "Modeled high-volume telemetry data and flows, balancing millions of messages, latency, per-operation cost, fan-out, and operational consistency."
+  - "Designed real-time communication alternatives using GraphQL subscriptions, MQTT, WebSockets, DynamoDB Streams, Redis, interest management, and selective fan-out."
+  - "Refactored backend structures, queries, and data contracts to reduce coupling, improve maintainability, and unlock production system evolution."
+  - "Built and maintained APIs, Lambdas, and event-driven integrations focused on observability, rollback, security, and predictable cost."
+  - "Investigated bottlenecks, reviewed architecture, supported technical decisions, and mentored the team through practical engineering trade-offs."
+tools:
+  - "AWS Lambda"
+  - "AppSync"
+  - "DynamoDB"
+  - "Node.js"
+  - "TypeScript"
+  - "Python"
+  - "GraphQL"
+  - "Docker"
+  - "Terraform"
+  - "Pulumi"
+---

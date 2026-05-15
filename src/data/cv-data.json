@@ -1,18 +1,16 @@
 {
   "PROFILE": {
-    "NAME": "Luna Peregrina",
-    "EMAIL": "lunaperegrina.contato@proton.me",
-    "LOCATION": "Bahia, Brazil",
+    "NAME": "Matheus Pimentel Brackmann Caramuru",
+    "EMAIL": "matheuspbrackmannc@gmail.com",
+    "LOCATION": "Curitiba, PR, Brasil",
     "SOCIALS": {
-      "TWITTER": "https://twitter.com/lunaperegrinaa",
-      "GITHUB": "https://github.com/lunaperegrina",
-      "LINKEDIN": "https://linkedin.com/in/lunaperegrina"
+      "GITHUB": "https://github.com/MatheusPBC"
     }
   },
   "CV_SECTIONS": {
-    "leadership": false,
+    "leadership": true,
     "experience": true,
     "skills": true,
-    "education": false
+    "education": true
   }
 }

@@ -14,33 +14,9 @@ export type SocialLinkItem = LinkItem & {
 export const socialLinks: SocialLinkItem[] = [
   {
     label: "GitHub",
-    href: "https://github.com/lunaperegrina",
+    href: "https://github.com/MatheusPBC",
     external: true,
     icon: "github",
-  },
-  {
-    label: "Bluesky",
-    href: "https://bluesky.app/profile/lunaperegrina.dev",
-    external: true,
-    icon: "bluesky",
-  },
-  {
-    label: "Twitter",
-    href: "https://twitter.com/lunaperegrinaa",
-    external: true,
-    icon: "twitter",
-  },
-  {
-    label: "LinkedIn",
-    href: "https://linkedin.com/in/lunaperegrina/",
-    external: true,
-    icon: "linkedin",
-  },
-  {
-    label: "Instagram",
-    href: "https://www.instagram.com/lunaperegrinaa/",
-    external: true,
-    icon: "instagram",
   },
 ];
 
@@ -49,40 +25,31 @@ const socialLinksWithoutLinkedin: SocialLinkItem[] = socialLinks.filter(
 );
 
 export const recommendLinks: LinkItem[] = [
-  {
-    label: "Monitor 4K LG baratinho",
-    href: "https://mercadolivre.com/sec/2Q4L19b",
-    external: true,
-  },
-  {
-    label: "Mouse ergonômico Logitech",
-    href: "https://mercadolivre.com/sec/24i6TUc",
-    external: true,
-  },
-  {
-    label: "Escrivaninha do setup",
-    href: "https://amzn.to/4c670XP",
-    external: true,
-  },
 ];
 
 export const projectLinks: LinkItem[] = [
   {
     label: "Personal Website",
-    description: "Portfolio and blog built with Astro.",
-    href: "https://lunaperegrina.dev",
+    description: "Portfolio and resume site built with Next.js.",
+    href: "/",
+    external: false,
+  },
+  {
+    label: "MotoTrilha",
+    description: "Python app for trail planning and off-road group operations.",
+    href: "https://github.com/MatheusPBC/MotoTrilha",
     external: true,
   },
   {
-    label: "Bluesky Followers",
-    description: "Tool to track and explore Bluesky followers.",
-    href: "https://bluesky-followers.lunaperegrina.dev",
+    label: "RLM RAG Hybrid",
+    description: "RAG and agent experiments for codebase research.",
+    href: "https://github.com/MatheusPBC/RLM_RAG-hybrid",
     external: true,
   },
   {
-    label: "TabNews CLI",
-    description: "CLI app to interact with TabNews from terminal.",
-    href: "https://github.com/lunaperegrina/tabnews-cli",
+    label: "API ANAS Hidro",
+    description: "TypeScript API for hydrology and telemetry data.",
+    href: "https://github.com/MatheusPBC/API-ANAS-Hidro",
     external: true,
   },
 ];
@@ -90,12 +57,12 @@ export const projectLinks: LinkItem[] = [
 export const otherLinks: LinkItem[] = [
   {
     label: "📄 CV (ENG) 🇺🇸",
-    href: "/luna-peregrina-cv-en.pdf",
+    href: "/matheus-brackmann-cv-en.pdf",
     external: false,
   },
   {
     label: "📄 CV (PT) 🇧🇷",
-    href: "/luna-peregrina-cv-pt.pdf",
+    href: "/matheus-brackmann-cv-pt.pdf",
     external: false,
   },
   // {
@@ -120,14 +87,5 @@ export const linkedinLinksPage: LinksPageData = {
 export const socialLinksPage: LinksPageData = {
   socialLinks: socialLinksWithoutLinkedin,
   projectLinks,
-  otherLinks: [
-    {
-      label: "🔒 Privacy",
-      description: "Conteúdo exclusivo no Privacy.",
-      href: "https://privacy.com.br/profile/lunaperegrina",
-      external: true,
-    },
-    ...otherLinks,
-  ],
+  otherLinks,
 };
-

@@ -1,49 +1,25 @@
-import { getRelativeLocaleUrl } from "astro:i18n";
-import {
-  defaultLocale,
-  locales,
-  type Locale,
-  type TranslationKey,
-  ui,
-} from "./ui";
+import { defaultLocale, locales, ui, type Locale, type TranslationKey } from "./ui";
 
-export { defaultLocale, locales, type Locale, type TranslationKey } from "./ui";
+export { defaultLocale, locales, type Locale, type TranslationKey };
 
 type InterpolationValues = Record<string, number | string>;
 
-function interpolate(
-  value: string,
-  variables?: InterpolationValues,
-): string {
-  if (!variables) return value;
-
-  return Object.entries(variables).reduce(
-    (output, [key, replacement]) =>
-      output.replaceAll(`{${key}}`, String(replacement)),
-    value,
-  );
+export function isLocale(value: string): value is Locale {
+  return locales.includes(value as Locale);
 }
 
 export function useTranslations(locale: Locale) {
   return (key: TranslationKey, variables?: InterpolationValues) => {
-    const message =
-      ui[locale]?.[key] ?? ui[defaultLocale][key] ?? key;
-    return interpolate(message, variables);
+    let message = ui[locale]?.[key] ?? ui[defaultLocale][key] ?? key;
+
+    if (variables) {
+      for (const [name, value] of Object.entries(variables)) {
+        message = message.replaceAll(`{${name}}`, String(value));
+      }
+    }
+
+    return message;
   };
-}
-
-export function getLocaleFromPathname(pathname: string): Locale {
-  const [, maybeLocale] = pathname.split("/");
-
-  if (locales.includes(maybeLocale as Locale)) {
-    return maybeLocale as Locale;
-  }
-
-  return defaultLocale;
-}
-
-export function getLocaleFromUrl(url: URL): Locale {
-  return getLocaleFromPathname(url.pathname);
 }
 
 export function getIntlLocale(locale: Locale): string {
@@ -55,31 +31,24 @@ function stripSurroundingSlashes(path: string): string {
 }
 
 export function getPathWithoutLocale(pathname: string): string {
-  const locale = getLocaleFromPathname(pathname);
-  const prefix = `/${locale}`;
-
-  if (pathname === prefix || pathname === `${prefix}/`) {
-    return "";
+  const parts = pathname.split("/").filter(Boolean);
+  if (parts.length > 0 && isLocale(parts[0])) {
+    return parts.slice(1).join("/");
   }
-
-  if (pathname.startsWith(`${prefix}/`)) {
-    return stripSurroundingSlashes(pathname.slice(prefix.length));
-  }
-
   return stripSurroundingSlashes(pathname);
 }
 
 export function toLocalizedPath(locale: Locale, path = ""): string {
   const normalized = stripSurroundingSlashes(path);
-  return getRelativeLocaleUrl(locale, normalized);
+  return normalized ? `/${locale}/${normalized}` : `/${locale}`;
 }
 
-export function getSwitchLocalePath(url: URL, locale: Locale): string {
-  return toLocalizedPath(locale, getPathWithoutLocale(url.pathname));
+export function getSwitchLocalePath(pathname: string, locale: Locale): string {
+  return toLocalizedPath(locale, getPathWithoutLocale(pathname));
 }
 
 export function getResumePath(locale: Locale): string {
   return locale === "pt"
-    ? "/luna-peregrina-cv-pt.pdf"
-    : "/luna-peregrina-cv-en.pdf";
+    ? "/matheus-brackmann-cv-pt.pdf"
+    : "/matheus-brackmann-cv-en.pdf";
 }

@@ -1,51 +1,36 @@
-import { getIntlLocale, type Locale } from "@i18n/utils";
+import { getIntlLocale, type Locale } from "@/i18n/utils";
 
-export function formatDate(date: Date, locale: Locale) {
-  return Intl.DateTimeFormat(getIntlLocale(locale), {
-    month: "short",
+export function formatDate(date: Date | string, locale: Locale) {
+  return new Intl.DateTimeFormat(getIntlLocale(locale), {
     day: "2-digit",
+    month: "short",
     year: "numeric",
-  }).format(date);
+  }).format(new Date(date));
 }
 
-export function readingTime(html: string, locale: Locale) {
-  const textOnly = html.replace(/<[^>]+>/g, "");
-  const wordCount = textOnly.split(/\s+/).length;
-  const readingTimeMinutes = (wordCount / 200 + 1).toFixed();
-  return locale === "pt"
-    ? `${readingTimeMinutes} min de leitura`
-    : `${readingTimeMinutes} min read`;
+export function formatDayMonth(date: Date | string, locale: Locale) {
+  return new Intl.DateTimeFormat(getIntlLocale(locale), {
+    day: "2-digit",
+    month: "2-digit",
+  }).format(new Date(date));
 }
 
-export function dateRange(
-  startDate: Date,
-  locale: Locale,
-  endDate?: Date | string,
-): string {
-  const intlLocale = getIntlLocale(locale);
-  const startMonth = startDate
-    .toLocaleString(intlLocale, { month: "short" })
-    .toLocaleLowerCase();
-  const startYear = startDate.getFullYear().toString();
-  let endMonth = "";
-  let endYear = "";
+export function readingTime(markdown: string, locale: Locale) {
+  const wordCount = markdown.split(/\s+/).filter(Boolean).length;
+  const minutes = Math.max(1, Math.round(wordCount / 200));
+  return locale === "pt" ? `${minutes} min de leitura` : `${minutes} min read`;
+}
 
-  if (endDate) {
-    if (typeof endDate === "string") {
-      endMonth = "";
-      const normalized = endDate.trim().toLowerCase();
-      endYear = normalized === "present" || normalized === "current"
-        ? locale === "pt"
-          ? "Atual"
-          : "Present"
-        : endDate;
-    } else {
-      endMonth = endDate
-        .toLocaleString(intlLocale, { month: "short" })
-        .toLocaleLowerCase();
-      endYear = endDate.getFullYear().toString();
-    }
-  }
+export function dateRange(startDate: Date | string, locale: Locale, endDate?: Date | string): string {
+  const formatter = new Intl.DateTimeFormat(getIntlLocale(locale), {
+    month: "short",
+    year: "numeric",
+  });
 
-  return `${startMonth} ${startYear} - ${endMonth} ${endYear}`;
+  const start = formatter.format(new Date(startDate));
+  const end = endDate === "Present" || !endDate
+    ? locale === "pt" ? "Atual" : "Present"
+    : formatter.format(new Date(endDate));
+
+  return `${start} - ${end}`;
 }

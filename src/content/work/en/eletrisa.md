@@ -1,0 +1,26 @@
+---
+company: "Eletrisa"
+role: "Full Stack Developer"
+location: "Brazil"
+dateStart: "2023-09-01"
+dateEnd: "2024-04-30"
+type: "Full-time"
+highlights:
+  - "Developed APIs, web applications, and internal systems for customers in the energy and power plant sector."
+  - "Built complete systems with Node.js, TypeScript, React, MongoDB, Docker, and automated integrations."
+  - "Created APIs with full CRUD flows, validation, authentication, and structured operational data."
+  - "Developed and maintained Node-RED flows, including dashboards, integrations, automation, and real-time data processing."
+  - "Created pipelines to read field equipment data, persist raw data, validate, transform, and periodically send data to external integrations."
+  - "Worked with telemetry and hydrology data such as rainfall, level, flow, timestamps, extra fields, and equipment/item grouping."
+  - "Fixed MongoDB aggregation, query performance, timestamp handling, table rendering, and dashboard issues."
+tools:
+  - "Node.js"
+  - "TypeScript"
+  - "React"
+  - "MongoDB"
+  - "Docker"
+  - "Node-RED"
+  - "Python"
+  - "Ruby"
+  - "REST APIs"
+---

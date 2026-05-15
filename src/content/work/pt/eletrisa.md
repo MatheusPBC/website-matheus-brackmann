@@ -1,0 +1,26 @@
+---
+company: "Eletrisa"
+role: "Desenvolvedor Full Stack"
+location: "Brasil"
+dateStart: "2023-09-01"
+dateEnd: "2024-04-30"
+type: "Tempo integral"
+highlights:
+  - "Desenvolvimento de APIs, aplicações web e sistemas internos para clientes do setor de energia e usinas."
+  - "Construção de sistemas completos com Node.js, TypeScript, React, MongoDB, Docker e integrações automatizadas."
+  - "Criação de APIs com CRUD completo, validações, autenticação e estruturação de dados para aplicações operacionais."
+  - "Desenvolvimento e manutenção de fluxos com Node-RED, incluindo dashboards, integrações, automações e tratamento de dados em tempo real."
+  - "Criação de pipelines para leitura de dados de equipamentos de campo, persistência de dados brutos, validação, transformação e envio periódico para integrações externas."
+  - "Trabalho com dados de telemetria e hidrologia, incluindo chuva, nível, vazão, timestamps, dados extras e agrupamentos por equipamento e item."
+  - "Correção de problemas em agregações MongoDB, performance de consultas, tratamento de timestamps, renderização de tabelas e dashboards."
+tools:
+  - "Node.js"
+  - "TypeScript"
+  - "React"
+  - "MongoDB"
+  - "Docker"
+  - "Node-RED"
+  - "Python"
+  - "Ruby"
+  - "REST APIs"
+---

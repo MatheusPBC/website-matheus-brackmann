@@ -24,7 +24,7 @@ const pdfVariants = [
   {
     id: "en",
     templatePath: resumeTemplatePath,
-    outputPdfPath: path.join(root, "public/luna-peregrina-cv-en.pdf"),
+    outputPdfPath: path.join(root, "public/matheus-brackmann-cv-en.pdf"),
     dateLocale: "en-US",
     presentLabel: "Present",
     sections: {
@@ -37,7 +37,7 @@ const pdfVariants = [
   {
     id: "pt",
     templatePath: curriculoTemplatePath,
-    outputPdfPath: path.join(root, "public/luna-peregrina-cv-pt.pdf"),
+    outputPdfPath: path.join(root, "public/matheus-brackmann-cv-pt.pdf"),
     dateLocale: "pt-BR",
     presentLabel: "Atual",
     sections: {
@@ -187,7 +187,7 @@ function normalizeCvSections(rawSections) {
 function getProfileFromCvDataJson(strict) {
   const fallback = {
     profile: {
-      name: "Astro Lunar",
+      name: "Matheus Brackmann",
       email: "your.email@example.com",
       location: "Your City, Your Country",
       linkedin: "https://linkedin.com/in/yourprofile",
@@ -227,7 +227,6 @@ function getProfileFromCvDataJson(strict) {
     { label: "PROFILE.NAME", value: profile.NAME },
     { label: "PROFILE.EMAIL", value: profile.EMAIL },
     { label: "PROFILE.LOCATION", value: profile.LOCATION },
-    { label: "PROFILE.SOCIALS.LINKEDIN (or PROFILE.LINKEDIN)", value: linkedinValue },
     { label: "PROFILE.SOCIALS.GITHUB (or PROFILE.GITHUB)", value: githubValue },
   ];
 
@@ -246,7 +245,7 @@ function getProfileFromCvDataJson(strict) {
       name: profile.NAME,
       email: profile.EMAIL,
       location: profile.LOCATION,
-      linkedin: linkedinValue,
+      linkedin: linkedinValue ?? githubValue,
       github: githubValue,
     },
     cvSections: normalizeCvSections(rawSections),
@@ -404,10 +403,16 @@ function buildDocument(strict, variant) {
 
   const safeName = escapeLatex(profile.name);
   const safeEmail = escapeLatex(profile.email);
-  const safeLinkedinUrl = escapeLatex(profile.linkedin);
   const safeGithubUrl = escapeLatex(profile.github);
-  const safeLinkedinLabel = escapeLatex(profile.linkedin.replace(/^https?:\/\//, ""));
   const safeGithubLabel = escapeLatex(profile.github.replace(/^https?:\/\//, ""));
+  const hasLinkedin = profile.linkedin && profile.linkedin !== profile.github;
+  const safeLinkedinUrl = hasLinkedin ? escapeLatex(profile.linkedin) : "";
+  const safeLinkedinLabel = hasLinkedin ? escapeLatex(profile.linkedin.replace(/^https?:\/\//, "")) : "";
+  const linkedinLine = hasLinkedin
+    ? `
+    {\\textbullet}
+    \\href{${safeLinkedinUrl}}{${safeLinkedinLabel}}`
+    : "";
 
   const patchedPreamble = preamble
     .replace(/pdftitle=\{[^}]*\}/, `pdftitle={CV ${safeName}}`)
@@ -431,8 +436,7 @@ function buildDocument(strict, variant) {
     ${escapeLatex(profile.location)}
     {\\textbullet}
     Email: \\href{mailto:${safeEmail}}{${safeEmail}}
-    {\\textbullet}
-    \\href{${safeLinkedinUrl}}{${safeLinkedinLabel}}
+    ${linkedinLine}
     {\\textbullet}
     \\href{${safeGithubUrl}}{${safeGithubLabel}}
 \\end{center}
